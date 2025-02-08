@@ -168,12 +168,27 @@ nav ul li a.active {
 }
 
 
-.vermais{
-    color: white;
-    background-color: green;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-}
+    .vermais{
+        background: linear-gradient(45deg, green, rgb(16, 73, 4));
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .vermais:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .vermais:focus {
+        outline: none;
+    }
+
 .carousel-container2 {
     width: 40%; /* Ocupa metade da largura da tela */
     overflow: hidden;
