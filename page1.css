@@ -149,6 +149,78 @@ nav ul li a.active {
     cursor: pointer; /* Muda o cursor para indicar interatividade */
 }
 
+.produtos {
+    padding: 50px 20px;
+}
+.produtos h2 {
+    color: green;
+    text-align: center;
+}
+.produtos p {
+    text-align: center;
+}
+.circles-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+.circle::before, .circle::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #28a745;
+    transition: all 0.5s ease-in-out;
+}
+.circle::before {
+    left: -50%;
+}
+.circle::after {
+    right: -50%;
+}
+.circle:hover::before {
+    left: 0;
+}
+.circle:hover::after {
+    right: 0;
+}
+.circle:hover .circle-content {
+    width: 100px;  /* Voltando ao tamanho menor */
+    height: 100px;
+    background-color: #28a745;
+    border-radius: 50%;
+}
+.circle-content {
+    width: 80px;
+    height: 80px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    z-index: 2;
+}
+
+
 
 .info-container {
     display: flex;
@@ -481,6 +553,66 @@ nav ul li a[href*="tel:"] {
     .menu-toggle {
         display: none;
     }
+}
+
+.premio-solo-vivo {
+    background: #f5f5f5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.premio-solo-vivo h2 {
+    color: #28a745;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.premio-solo-vivo p {
+    color: #333;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.premio-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.premio-content img {
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.premio-info {
+    max-width: 400px;
+    text-align: left;
+}
+
+.premio-info p {
+    font-style: italic;
+    color: #555;
+}
+
+.btn-premio {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-premio:hover {
+    background: #218838;
 }
 
 /* Estilo da Seção de Contato */
