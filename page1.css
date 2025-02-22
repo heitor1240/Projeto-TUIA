@@ -473,6 +473,7 @@ h2 {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    
   }
   .cobertura-card {
     padding: 20px;
@@ -518,7 +519,10 @@ h2 {
     padding: 50px 20px;
 }
 .produtos h2 {
-    color: green;
+    color: #85C20D;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif !important;
     text-align: center;
 }
 .produtos p {
@@ -585,6 +589,96 @@ h2 {
     transition: all 0.5s ease-in-out;
     z-index: 2;
 }
+
+.fertilizantes, .marcas, .sementes {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.fertilizantes h2, .marcas h2, .sementes h2 {
+    color: #2d572c;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #2d572c;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.fertilizantes p, .marcas p, .sementes p {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.fertilizantes-lista, .sementes-lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.fertilizante-item, .semente-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transform: translateY(0); /* Inicialmente não movido */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Transição suave */
+}
+
+.fertilizante-item:hover, .semente-item:hover {
+    color: green;
+    background-color: white;
+    transform: translateY(-10px); /* Efeito de subida */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+}
+
+.fertilizante-item:nth-child(1), .semente-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.fertilizante-item:nth-child(2), .semente-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.fertilizante-item:nth-child(3), .semente-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.fertilizante-item h3, .semente-item h3 {
+    color: #2d572c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.fertilizante-item p, .semente-item p {
+    color: #555;
+    font-size: 16px;
+}
+
+.marcas-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.marcas-container img {
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+.marcas-container img:hover {
+    transform: scale(1.1);
+}
+
 
 /*page 2*/
 
