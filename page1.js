@@ -26,17 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(mudarSlide, 4000); // Troca a cada 4 segundos
 });
 
-
-document.getElementById("vermais").addEventListener("click", function() {
-    let tooltip = document.getElementById("tooltip-text");
-
-    if (tooltip.style.display === "none" || tooltip.style.display === "") {
-        tooltip.style.display = "block"; // Mostra o texto
-    } else {
-        tooltip.style.display = "none"; // Oculta o texto
-    }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav");
@@ -45,20 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.toggle("active");
     });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    let carrossel = document.querySelector(".carousel2");
-    let slides = document.querySelectorAll(".slide2");
-    let totalSlides = slides.length;
-    let index = 0;
-
-    if (!carrossel || slides.length === 0) {
-        console.error("Carrossel não encontrado ou sem slides.");
-        return;
-    }
-
-    // Corrige a largura do carrossel para conter todos os slides corretamente
-    carrossel.style.width = `${totalSlides * 100}%`;
 
     function mudarSlide() {
         index++;
@@ -75,8 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Transformação aplicada:", `translateX(-${index * (100 / totalSlides)}%)`); // Verificar a transformação
     }
 
-    setInterval(mudarSlide, 4000);
-});
+
 
 
 function enviarWhatsApp() {

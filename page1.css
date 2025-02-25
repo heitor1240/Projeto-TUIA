@@ -144,6 +144,18 @@ nav ul li a.active {
     height: 100%;
     object-fit: cover;
 }
+@media (max-width: 768px) {  
+    .slide h1 {
+        font-size: 1.5rem; /* Reduz o tamanho do título */
+        margin-top: 20px; /* Move o texto para baixo */
+    }
+
+    .slide p {
+        font-size: 1rem; /* Reduz o tamanho do parágrafo */
+        margin-top: 30px; /* Move o parágrafo um pouco mais para baixo */
+    }
+}
+
 
 .hero-content {
     position: absolute;
@@ -156,6 +168,20 @@ nav ul li a.active {
     font-weight: bold;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
+@media (max-width: 768px) {  
+    .hero-content {
+        transform: translateY(20px); /* Move todo o bloco para baixo */
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
 
 .cta-button {
     display: inline-block;
@@ -850,6 +876,34 @@ h2 {
     font-size: 1rem;
     color: var(--preto);
 }
+@media (max-width: 768px) {
+    .contato-content {
+        display: flex;
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza os textos */
+        gap: 30px; /* Espaçamento entre os elementos */
+    }
+
+    .contato-texto {
+        width: 100%; /* Faz os textos ocuparem mais espaço */
+    }
+
+    .contato-imagem {
+        order: 2; /* Coloca a imagem antes do botão */
+        width: 100%;
+    }
+
+    .contato-imagem img {
+        width: 100%; /* Faz a imagem ocupar mais espaço */
+        max-width: 500px; /* Define um tamanho maior */
+        height: auto; /* Mantém a proporção */
+    }
+
+    .btn-contato {
+        order: 3; /* Mantém o botão abaixo da imagem */
+    }
+}
 
 .contato-section {
     background-color: #eef7fd; /* Cor de fundo azul claro */
@@ -958,6 +1012,32 @@ h2 {
     background-color: var(--azulin);
 }
 
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+        margin-top: 30px;
+    }
+
+    .quem-somos, 
+    .diferenca {
+        width: 100%; /* Faz cada seção ocupar toda a largura */
+        margin-top: 30px;
+    }
+
+    .diferenciais {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os diferenciais */
+    }
+
+    .diferencial {
+        text-align: center; /* Centraliza o conteúdo */
+    }
+}
+
+
 /* Seção "Quem Somos" à esquerda */
 .quem-somos h3{
     font-size: 1.3rem;
@@ -1001,6 +1081,17 @@ h2 {
     width: 30px;
     height: 30px;
 }
+
+@media (max-width: 768px) {
+    .diferencial img {
+        width: 40px; /* Reduz o tamanho da imagem no mobile */
+    }
+
+    .diferencial p {
+        font-size: 0.9rem;
+    }
+}
+
 
 /* Botão estilizado */
 .btn-vermais {
@@ -1517,5 +1608,125 @@ footer {
 }
 .footer-bottom img {
     max-width: 110px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background: #e0eedf;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: right;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .historia .conteudo,
+    .premio-solo-vivo .premio-content,
+    .quem-somos {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .historia .texto,
+    .premio-info,
+    .quem-somos {
+        width: 100%;
+    }
+
+    .historia .imagem img,
+    .premio-solo-vivo img {
+        width: 80%;
+        margin: 20px auto;
+    }
+}
+@media (max-width: 768px) {
+    .conteudo {
+        flex-direction: column; /* Empilha os itens um abaixo do outro */
+        align-items: center; /* Centraliza o conteúdo */
+        text-align: center; /* Alinha o texto ao centro */
+    }
+
+    .texto {
+        width: 100%; /* Ocupa toda a largura */
+    }
+
+    .imagem {
+        width: 100%; /* Ocupa toda a largura */
+        margin-top: 20px; /* Adiciona um espaçamento entre o texto e a imagem */
+        text-align: center; /* Garante que a imagem fique centralizada */
+    }
+
+    .imagem img {
+        width: 90%; /* Ajusta o tamanho da imagem para não ficar muito grande */
+        max-width: 400px; /* Define um limite máximo */
+        height: auto; /* Mantém a proporção */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .hero-content {
+        font-size: 1.5rem;
+    }
+
+    .carousel {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+    }
+
+    .slide img {
+        height: auto;
+    }
+}
+@media (max-width: 768px) {
+    .feature-container,
+    .valores,
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-box,
+    .card,
+    .service-item {
+        width: 90%;
+    }
+
+    .marcas-container {
+        justify-content: center;
+    }
+
+    .marcas-container img {
+        width: 80px;
+    }
 }
 
