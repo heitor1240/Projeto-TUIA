@@ -332,6 +332,7 @@ nav ul li a.active {
     font-size: 0.9rem;
     color: #555;
 }
+
 .feature-container {
     display: flex;
     justify-content: center;
@@ -412,94 +413,103 @@ nav ul li a.active {
 }
 /*quem somos*/
 /* Container principal que organiza as duas seções lado a lado */
-.main-container {
-    display: flex;
-    justify-content: space-between; /* Espaço igual entre os elementos */
-    align-items: center;
-    max-width: 90%;
-    margin: 40px auto;
-    padding: 20px;
-    font-weight: lighter;
-    background-color: var(--azulin);
+.hero01 {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    padding-top: 150px;
 }
 
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column; /* Empilha os elementos */
-        align-items: center; /* Centraliza os itens */
-        text-align: center; /* Centraliza o texto */
-        margin-top: 30px;
-    }
-
-    .quem-somos, 
-    .diferenca {
-        width: 100%; /* Faz cada seção ocupar toda a largura */
-        margin-top: 30px;
-    }
-
-    .diferenciais {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza os diferenciais */
-    }
-
-    .diferencial {
-        text-align: center; /* Centraliza o conteúdo */
-    }
-}
-
-
-/* Seção "Quem Somos" à esquerda */
-.quem-somos h3{
-    font-size: 1.3rem;
-    color: var(--preto);
-}
-.quem-somos h1{
+.titulo {
     font-size: 2.5rem;
+    color: #176D2D;
+    font-weight: bold;
 }
-.quem-somos {
-    width: 50%; /* Ocupa metade da tela */
-    text-align: left;
-    color: black;
+
+.subtitulo {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-top: 5px;
+}
+
+.descricao01 {
     font-size: 1.2rem;
+    color: #000000;
+    max-width: 800px;
+    margin: 20px auto;
+    line-height: 1.6;
 }
 
-/* Seção "Diferenciais" à direita */
-.diferenca {
-    width: 50%; /* Ocupa metade da tela */
-    display: flex;
-    flex-direction: column; /* Organiza os diferenciais verticalmente */
-    align-items: center; /* Alinha o conteúdo à esquerda dentro da seção */
-    gap: 15px;
+.diferenciais-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 30px auto;
 }
 
-/* Estilo dos diferenciais */
-.diferenciais {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.diferencial {
+.diferenca-box {
+    background-color: #176D2D;
+    color: white;
+    text-align: left;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: 100%;
-    color: black;
+    gap: 15px; /* Espaço entre a imagem e o texto */
+    height: 100px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-.diferencial img {
-    width: 30px;
-    height: 30px;
+.diferenca-box:hover {
+    background-color: #1F8C3B;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
+.diferenca-box img {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* Mantém a imagem sempre do mesmo tamanho */
+}
+
+.diferenca-box p {
+    font-size: 1.1rem;
+    flex-grow: 1;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #176D2D;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1F8C3B;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
-    .diferencial img {
-        width: 40px; /* Reduz o tamanho da imagem no mobile */
+    .diferenciais-container {
+        grid-template-columns: 1fr;
     }
 
-    .diferencial p {
-        font-size: 0.9rem;
+    .diferenca-box {
+        width: 90%;
+        margin: auto;
+        height: auto;
+    }
+
+    .diferenca-box img {
+        width: 40px;
+        height: 40px;
     }
 }
 
