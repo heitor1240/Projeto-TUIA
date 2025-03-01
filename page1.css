@@ -6,6 +6,8 @@
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
+@import 'node_modules/tailwindcss/base';
+
 :root{
     --neve: #e0eedf;
     --azular: #003366;
@@ -386,6 +388,122 @@ nav ul li a.active {
         max-width: 300px; /* Define um limite máximo */
     }
 }
+@media (max-width: 768px) {
+    .feature-container,
+    .valores,
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-box,
+    .card,
+    .service-item {
+        width: 90%;
+    }
+
+    .marcas-container {
+        justify-content: center;
+    }
+
+    .marcas-container img {
+        width: 80px;
+    }
+}
+/*quem somos*/
+/* Container principal que organiza as duas seções lado a lado */
+.main-container {
+    display: flex;
+    justify-content: space-between; /* Espaço igual entre os elementos */
+    align-items: center;
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    font-weight: lighter;
+    background-color: var(--azulin);
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+        margin-top: 30px;
+    }
+
+    .quem-somos, 
+    .diferenca {
+        width: 100%; /* Faz cada seção ocupar toda a largura */
+        margin-top: 30px;
+    }
+
+    .diferenciais {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os diferenciais */
+    }
+
+    .diferencial {
+        text-align: center; /* Centraliza o conteúdo */
+    }
+}
+
+
+/* Seção "Quem Somos" à esquerda */
+.quem-somos h3{
+    font-size: 1.3rem;
+    color: var(--preto);
+}
+.quem-somos h1{
+    font-size: 2.5rem;
+}
+.quem-somos {
+    width: 50%; /* Ocupa metade da tela */
+    text-align: left;
+    color: black;
+    font-size: 1.2rem;
+}
+
+/* Seção "Diferenciais" à direita */
+.diferenca {
+    width: 50%; /* Ocupa metade da tela */
+    display: flex;
+    flex-direction: column; /* Organiza os diferenciais verticalmente */
+    align-items: center; /* Alinha o conteúdo à esquerda dentro da seção */
+    gap: 15px;
+}
+
+/* Estilo dos diferenciais */
+.diferenciais {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.diferencial {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    color: black;
+}
+
+.diferencial img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .diferencial img {
+        width: 40px; /* Reduz o tamanho da imagem no mobile */
+    }
+
+    .diferencial p {
+        font-size: 0.9rem;
+    }
+}
+
+
 
 .historia {
     background: var(--verde_escuro);
@@ -999,98 +1117,6 @@ h2 {
     }
 }
 
-/*quem somos*/
-/* Container principal que organiza as duas seções lado a lado */
-.main-container {
-    display: flex;
-    justify-content: space-between; /* Espaço igual entre os elementos */
-    align-items: center;
-    max-width: 90%;
-    margin: 40px auto;
-    padding: 20px;
-    font-weight: lighter;
-    background-color: var(--azulin);
-}
-
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column; /* Empilha os elementos */
-        align-items: center; /* Centraliza os itens */
-        text-align: center; /* Centraliza o texto */
-        margin-top: 30px;
-    }
-
-    .quem-somos, 
-    .diferenca {
-        width: 100%; /* Faz cada seção ocupar toda a largura */
-        margin-top: 30px;
-    }
-
-    .diferenciais {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza os diferenciais */
-    }
-
-    .diferencial {
-        text-align: center; /* Centraliza o conteúdo */
-    }
-}
-
-
-/* Seção "Quem Somos" à esquerda */
-.quem-somos h3{
-    font-size: 1.3rem;
-    color: var(--preto);
-}
-.quem-somos h1{
-    font-size: 2.5rem;
-}
-.quem-somos {
-    width: 50%; /* Ocupa metade da tela */
-    text-align: left;
-    color: black;
-    font-size: 1.2rem;
-}
-
-/* Seção "Diferenciais" à direita */
-.diferenca {
-    width: 50%; /* Ocupa metade da tela */
-    display: flex;
-    flex-direction: column; /* Organiza os diferenciais verticalmente */
-    align-items: center; /* Alinha o conteúdo à esquerda dentro da seção */
-    gap: 15px;
-}
-
-/* Estilo dos diferenciais */
-.diferenciais {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.diferencial {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    color: black;
-}
-
-.diferencial img {
-    width: 30px;
-    height: 30px;
-}
-
-@media (max-width: 768px) {
-    .diferencial img {
-        width: 40px; /* Reduz o tamanho da imagem no mobile */
-    }
-
-    .diferencial p {
-        font-size: 0.9rem;
-    }
-}
 
 
 /* Botão estilizado */
@@ -1705,28 +1731,6 @@ footer {
 
     .slide img {
         height: auto;
-    }
-}
-@media (max-width: 768px) {
-    .feature-container,
-    .valores,
-    .services-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-box,
-    .card,
-    .service-item {
-        width: 90%;
-    }
-
-    .marcas-container {
-        justify-content: center;
-    }
-
-    .marcas-container img {
-        width: 80px;
     }
 }
 
