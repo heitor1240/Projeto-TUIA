@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalSlides = slides.length;
     let index = 0;
 
-    // Clonando o primeiro slide e adicionando ao final do carrossel
+    // Clona o primeiro slide e adiciona no final
     let primeiroSlide = slides[0].cloneNode(true);
     carrossel.appendChild(primeiroSlide);
 
@@ -13,18 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
         carrossel.style.transition = "transform 1s ease-in-out";
         carrossel.style.transform = `translateX(-${index * 100}vw)`;
 
-        // Quando chega no último slide, faz a transição de volta para o primeiro slide
+        // Quando chega no último slide, reseta a posição
         if (index === totalSlides) {
             setTimeout(() => {
                 carrossel.style.transition = "none"; // Remove a transição
-                carrossel.style.transform = "translateX(0vw)"; // Reseta para o primeiro slide
-                index = 0; // Reinicia o índice
-            }, 1000); // Exibe o último slide por 1 segundo
+                carrossel.style.transform = "translateX(0vw)"; // Volta para o primeiro
+                index = 0;
+            }, 1000); // Espera a animação terminar
         }
     }
 
-    setInterval(mudarSlide, 4000); // Troca a cada 4 segundos
+    setInterval(mudarSlide, 4000); // Troca de slide a cada 4 segundos
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
@@ -35,23 +36,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-    function mudarSlide() {
-        index++;
-        console.log("Índice atual:", index); // Verificar se o índice está sendo atualizado
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".content");
 
-        if (index >= totalSlides) {
-            index = 0; // Reinicia no primeiro slide
-            console.log("Índice reiniciado para 0");
-        }
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            // Remove a classe ativa de todas as abas e conteúdos
+            tabs.forEach(t => t.classList.remove("active"));
+            contents.forEach(c => c.classList.remove("active"));
 
-        carrossel.style.transition = "transform 1s ease-in-out";
-        carrossel.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
-
-        console.log("Transformação aplicada:", `translateX(-${index * (100 / totalSlides)}%)`); // Verificar a transformação
-    }
-
-
-
+            // Adiciona a classe ativa ao tab clicado e ao conteúdo correspondente
+            this.classList.add("active");
+            document.getElementById(this.getAttribute("data-target")).classList.add("active");
+        });
+    });
+});
 
 function enviarWhatsApp() {
     // Capturar os valores do formulário
