@@ -127,18 +127,21 @@ nav ul li a.active {
     overflow: hidden; /* Esconde os slides que não estão ativos */
 }
 
+
 .carousel {
     display: flex;
-    width: 400vw; /* 3 imagens + 1 cópia da primeira */
-    height: 100vh;
+    flex-direction: row; /* Garante que os slides fiquem lado a lado */
+    width: calc(100vw * 4); /* Tamanho baseado no número de slides (3 + 1 clonado) */
     transition: transform 1s ease-in-out;
 }
+
 
 .slide {
     width: 100vw;
     height: 100vh;
     position: relative;
     flex-shrink: 0;
+    flex: 0 0 100vw; /* Garante que cada slide ocupe exatamente 100vw */
 }
 
 .slide img {
@@ -146,17 +149,93 @@ nav ul li a.active {
     height: 100%;
     object-fit: cover;
 }
-@media (max-width: 768px) {  
-    .slide h1 {
-        font-size: 1.5rem; /* Reduz o tamanho do título */
-        margin-top: 20px; /* Move o texto para baixo */
+/* Esconde a imagem no desktop */
+.mobile-img {
+    display: none;
+    width: 100%;
+    height: 120%;
+}
+
+/* No modo responsivo, esconde o carrossel e mostra a nova imagem */
+/* Para o modo responsivo */
+@media (max-width: 768px) {
+    .carousel-container {
+        display: none; /* Esconde o carrossel */
     }
 
-    .slide p {
-        font-size: 1rem; /* Reduz o tamanho do parágrafo */
-        margin-top: 30px; /* Move o parágrafo um pouco mais para baixo */
+    .mobile-img {
+        position: relative; /* Necessário para que o conteúdo se posicione sobre a imagem */
+        width: 100%;
+        height: 100vh; /* Ocupa toda a altura da tela */
+        display: flex;
+        flex-direction: column; /* Coloca o botão abaixo do texto */
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Impede que a imagem saia do container */
+    }
+
+    /* Imagem que ocupa toda a div */
+    .mobile-img-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Faz a imagem cobrir toda a área sem distorcer */
+        position: absolute; /* A imagem ficará como fundo */
+        top: 0;
+        left: 0;
+        z-index: -1; /* Coloca a imagem atrás do conteúdo */
+    }
+
+    /* Container que centraliza o texto */
+    .content-overlay {
+        position: absolute; /* Faz o conteúdo ficar em cima da imagem */
+        top: 50%; /* Centraliza verticalmente */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translate(-50%, -50%); /* Ajusta a posição para centralizar exatamente */
+        text-align: center; /* Centraliza o texto */
+        color: white; /* Cor do texto para boa visibilidade */
+        z-index: 1; /* Garante que o conteúdo fique sobre a imagem */
+        width: 100%; /* Garante que o conteúdo ocupe toda a largura */
+    }
+
+    /* Estilização do título */
+    .content-overlay h1 {
+        font-size: 32px;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    /* Estilização do parágrafo */
+    .content-overlay p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    /* Estilização do botão */
+    .cta-button-mobile {
+        display: inline-block;
+        margin-top: -80px; /* Deixa um espaço entre o texto e o botão */
+        padding: 12px 25px;
+        border: 2px solid var(--verde_escuro);
+        background-color: var(--verde_escuro);
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: all 0.3s ease-in-out;
+        text-shadow: none;
+        font-family: var(--poppins);
+        z-index: 2; /* Garante que o botão fique acima de outros elementos */
+    }
+
+    .cta-button-mobile:hover {
+        background-color: rgb(12, 153, 12);
+        color: #e0eedf;
     }
 }
+
+
+    
 
 
 .hero-content {
@@ -170,19 +249,7 @@ nav ul li a.active {
     font-weight: bold;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
-@media (max-width: 768px) {  
-    .hero-content {
-        transform: translateY(20px); /* Move todo o bloco para baixo */
-    }
 
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-}
 
 
 .cta-button {
@@ -205,11 +272,7 @@ nav ul li a.active {
     background-color: green;
     color: #e0eedf;
 }
-@media (max-width: 768px) {
-    .cta-button {
-        display: none;
-    }
-}
+
 
 
 /* Seção principal */
@@ -243,15 +306,29 @@ nav ul li a.active {
 .text-top-left h2 {
     font-size: 1.8rem;
     font-weight: lighter;
-    color: #213958;
+    color: var(--azulescuro);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     text-shadow: none;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .highlight {
-    color: #006400;
+    color: #047004;
     font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .text-top-left {
+        top: 100px; /* Reduz a distância do topo */
+        left: 20px; /* Reduz a margem lateral */
+        max-width: 100%; /* Permite que o texto se espalhe melhor na tela */
+        font-size: 30px; /* Ajusta o tamanho do texto para telas menores */
+        font-weight: 800;
+    }
+
+    .text-top-left h2 {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
 }
 
 /* Linha divisória e título "PROPRIEDADES" */
@@ -341,6 +418,11 @@ nav ul li a.active {
     top: -50px; /* Ajusta a posição para sobrepor a divisão */
     z-index: 10;
     
+}
+@media (max-width: 768px) {
+    .feature-container{
+        top: 60px;
+    }
 }
 
 .feature-box {
@@ -577,8 +659,9 @@ h2 {
 }
 .cta-button-his {
     display: inline-block;
-    background-color: var(--verde_claro);
-    color: #1F8C3B;
+    background-color: #005500;
+    border-color: white;
+    color: white;
     font-size: 1.2rem;
     padding: 12px 24px;
     border-style:initial;
@@ -591,8 +674,11 @@ h2 {
 }
 
 .cta-button-his:hover {
-    background-color: var(--verde_escuro);
+    background-color: var(--verde_claro);
     color: white;
+}
+@media (max-width: 768px) {
+    
 }
 
 /* Seção de Valores */
@@ -731,6 +817,13 @@ h2 {
 
     
 }
+@media  (max-width: 768px){
+    .header09{
+        width: 190%; /* Aumenta a largura da imagem em 20% */
+        height: auto; /* Mantém a proporção da imagem */
+        object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+    }
+}
 
 .intro-text {
     font-size: 18px;
@@ -838,14 +931,13 @@ ul li {
 }
 
 
-
 /* Estilização principal */
 .containe {
     width: 80%;
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start; /* Alinha à esquerda para melhor layout */
 }
 
 /* Layout Desktop */
@@ -863,7 +955,8 @@ ul li {
     padding-left: 10px;
     padding-top: 50px;
 }
-.normal{
+
+.normal {
     font-weight: 400;
 }
 
@@ -890,22 +983,43 @@ ul li {
     margin-bottom: 15px;
 }
 
-/* Responsivo: Ajuste para telas menores */
+/* Responsivo */
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column; /* Coloca o título acima do texto */
+    .containe {
+        width: 100%; /* Ajusta a largura para 100% no responsivo */
+        margin: 0; /* Remove as margens laterais */
     }
 
-    .lefts {
-        width: 100%;
-        text-align: center  ;
-        padding: 0;
-        margin-bottom: 20px;
+    .contents {
+        flex-direction: column; /* Organiza os itens em uma coluna */
+        align-items: center; /* Centraliza o conteúdo */
+        padding-top: 20px; /* Diminui o padding superior */
     }
 
+    .lefts,
     .rights {
-        width: 100%;
-        text-align: left;
+        width: 90%; /* Aumenta a largura para ter uma margem interna */
+        padding-left: 0; /* Remove o padding lateral */
+        padding-top: 20px; /* Ajuste de espaçamento no mobile */
+        text-align: center; /* Centraliza o texto */
+        margin-bottom: 20px; /* Adiciona um espaçamento entre as colunas */
+    }
+
+    .lefts h2 {
+        font-size: 30px; /* Diminui o tamanho da fonte no responsivo */
+    }
+
+    .rights h3 {
+        font-size: 20px; /* Ajusta o tamanho do subtítulo no responsivo */
+    }
+
+    .rights ul {
+        margin-top: 20px;
+    }
+
+    .rights li {
+        font-size: 20px;
+        margin-bottom: 15px; /* Diminui o espaçamento entre os itens da lista */
     }
 }
 
@@ -950,7 +1064,26 @@ ul li {
     font-size: 25px;
     font-weight: 500;
 }
+@media (max-width: 768px) {
+    /* Altera a imagem de fundo para uma versão diferente no responsivo */
+    .cta-image {
+        background: url('5-mobile.jpg') no-repeat center top;
+        background-size: cover;
+        height: 300px; /* Ajuste a altura conforme necessário */
+    }
 
+    .cta-content h2 {
+        font-size: 24px; /* Reduz o tamanho da fonte */
+    }
+
+    .cta-content h3 {
+        font-size: 20px; /* Ajusta o tamanho do subtítulo no responsivo */
+    }
+
+    .cta-content {
+        padding: 20px; /* Reduz o padding no responsivo */
+    }
+}
 
 
 .nossas-sementes {
@@ -959,6 +1092,7 @@ ul li {
     padding: 0;
     color: var(--verde_escuro);
 }
+
 .nossas-sementes-header{
     padding: 60px;
     text-align: right;
@@ -997,6 +1131,35 @@ ul li {
 .nossas-sementes-list {
     list-style-type: disc;
     padding-left: 20px;
+}
+@media (max-width: 768px) {
+    .nossas-sementes-container {
+        flex-direction: column; /* Muda para coluna no mobile */
+        padding: 20px; /* Diminui o padding */
+    }
+
+    /* Ajuste no espaçamento do título */
+    .nossas-sementes-title-container{
+        text-align: center;
+    }
+    .nossas-sementes-content {
+        text-align: left;
+    }
+
+    .nossas-sementes-title {
+        font-size: 30px; /* Ajuste o tamanho da fonte no mobile */
+    }
+
+    .nossas-sementes-list {
+        font-size: 20px; /* Ajuste o tamanho da lista no mobile */
+        padding-left: 20px;
+    }
+
+    .nossas-sementes-header {
+        text-align: center; /* Ajusta a imagem para o centro no mobile */
+        margin-right: 0;
+        margin-top: 30px;
+    }
 }
 
 .cobertura-container {
@@ -1312,7 +1475,7 @@ ul li {
 .btn-contato {
     display: inline-block;
     padding: 12px 25px;
-    background: #6cbf3f; /* Verde */
+    background: var(--verde_escuro); /* Verde */
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -1322,7 +1485,7 @@ ul li {
 }
 
 .btn-contato:hover {
-    background: #5aa832;
+    background: var(--verde_claro);
 }
 
 .contato-imagem {
@@ -1334,7 +1497,45 @@ ul li {
 .contato-imagem img {
     max-width: 80%; /* Para não ultrapassar a tela */
 }
+@media (max-width: 768px) {
+    .contato-content {
+        flex-direction: column; /* Alinha os itens em coluna */
+        gap: 20px; /* Reduz o espaço entre os itens */
+    }
 
+    .contato-texto {
+        width: 100%; /* Texto ocupa toda a largura da tela */
+        text-align: justify; /* Justifica o texto */
+        margin: 0; /* Remove as margens */
+    }
+
+    .contato-texto h2 {
+        font-size: 34px; /* Ajusta o tamanho do título no mobile */
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .contato-texto p {
+        top: -10px;
+        font-size: 20px; /* Ajusta o tamanho do parágrafo no mobile */
+    }
+
+    .btn-contato {
+        padding: 12px 30px;
+        font-size: 16px; /* Ajusta o tamanho do botão no mobile */
+    }
+
+    .contato-imagem {
+        width: 100%; /* Imagem ocupa toda a largura disponível */
+        display: flex;
+        justify-content: center; /* Centraliza a imagem */
+    }
+
+    .contato-imagem img {
+        max-width: 100%; /* A imagem vai ocupar 100% da largura */
+        width: auto;
+    }
+}
 
 .cta-button-3 {
     display: inline-block;
@@ -1663,6 +1864,14 @@ nav ul li a[href*="tel:"] {
     max-width: 1200px; /* Mantém um limite para telas grandes */
 }
 
+@media  (max-width: 768px){
+    .imagem-premio{
+        width: 240%; /* Aumenta a largura da imagem em 20% */
+        height: auto; /* Mantém a proporção da imagem */
+        object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+    }
+}
+
 .premio-content {
     display: flex;
     align-items: center;
@@ -1686,9 +1895,11 @@ nav ul li a[href*="tel:"] {
 
 .premio-info p {
     font-family: var(--poppins);
-    color: var(--preto);
+    color: var(--cinza);
+    font-size: 20px;
     margin-bottom: 20px;
     font-weight: 400;
+
 }
 
 .premio-solo-vivo h1 {
@@ -1703,7 +1914,7 @@ nav ul li a[href*="tel:"] {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background: #28a745;
+    background: var(--verde_escuro);
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -1744,6 +1955,28 @@ nav ul li a[href*="tel:"] {
     color: #ffffff;
     padding: 20px;
     border-radius: 10px;
+}
+@media (max-width: 768px) {
+    /* Imagem de fundo diferente no responsivo */
+    .background-image {
+        content: url('terra-mobile.png'); /* Substitua com o caminho da imagem para o fundo no mobile */
+        height: 100%; /* Ajusta a imagem para cobrir toda a área */
+        object-fit: cover; /* A imagem será redimensionada sem distorcer */
+    }
+
+    /* Ajusta o tamanho da imagem do meio no responsivo */
+    .overlay-image {
+        width: 90%; /* Reduz o tamanho da imagem do meio */
+        max-width: 400px; /* Limita o tamanho máximo da imagem */
+        top: 20%;
+    }
+
+    /* Ajusta o texto no responsivo */
+    .text-content {
+        top: 80%; /* Move o texto para cima */
+        font-size: 20px; /* Diminui o tamanho da fonte */
+        padding: 15px; /* Ajuste do padding */
+    }
 }
 
 
