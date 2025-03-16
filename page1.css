@@ -531,7 +531,7 @@ nav ul li a.active {
 }
 
 .diferenca-box {
-    background-color: var(--azulin);
+    background-color: white;
     color: var(--cinza);
     text-align: left;
     padding: 15px;
@@ -809,26 +809,41 @@ h2 {
 }
 
 /* Cabeçalho */
-.header09 img {
-    padding-top: 50px;
-    margin: 20px;
-    width: 100%; /* Mantém uma margem nas laterais */
-    text-align: right;
-
-    
+/* Garante que a imagem do desktop seja visível */
+.header09 {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+    display: block; /* Garante que seja visível */
+    padding-top: 60px;
 }
-@media  (max-width: 768px){
-    .header09{
-        width: 190%; /* Aumenta a largura da imagem em 20% */
-        height: auto; /* Mantém a proporção da imagem */
-        object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+
+/* Esconde a imagem do mobile por padrão */
+.header09-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+    padding-top: 60px;
+}
+
+/* No responsivo (até 768px), esconde a imagem do desktop e mostra a do mobile */
+@media (max-width: 768px) {
+    .header09 {
+        display: none; /* Some no mobile */
+    }
+
+    .header09-mobile {
+        display: block; /* Agora aparece no mobile */
     }
 }
+
+
 
 .intro-text {
     font-size: 18px;
     color: var(--preto);
     margin: 10px 0 20px;
+    padding-top: 30px;
 }
 
 /* Aba de navegação */
@@ -1065,11 +1080,15 @@ ul li {
     font-weight: 500;
 }
 @media (max-width: 768px) {
+    .cta-section{
+        width: 450px;
+    }
     /* Altera a imagem de fundo para uma versão diferente no responsivo */
     .cta-image {
         background: url('5-mobile.jpg') no-repeat center top;
         background-size: cover;
         height: 300px; /* Ajuste a altura conforme necessário */
+        width: 110%;
     }
 
     .cta-content h2 {
@@ -1082,6 +1101,7 @@ ul li {
 
     .cta-content {
         padding: 20px; /* Reduz o padding no responsivo */
+        width: 110%;
     }
 }
 
@@ -1093,11 +1113,16 @@ ul li {
     color: var(--verde_escuro);
 }
 
-.nossas-sementes-header{
+.nossas-sementes-header1{
     padding: 60px;
     text-align: right;
     margin-right: 40px;
     
+}
+.nossas-sementes-header{
+    padding: 60px;
+    text-align: right;
+    margin-right: 40px;
 }
 .nossas-sementes-container {
     display: flex;
@@ -1110,16 +1135,17 @@ ul li {
     padding: 40px;
 }
 .nossas-sementes-title-container {
-    flex: 1;
+    flex: 0;
     text-align: left;
 }
 .nossas-sementes-content {
     flex: 2;
-    text-align: left;
-    margin-left: 40px;
+    text-align: center;
+    margin-left: 190px;
 }
 .nossas-sementes-content h3{
     font-weight: 400;
+    text-align: center;
 }
 
 .nossas-sementes-title {
@@ -1133,34 +1159,81 @@ ul li {
     padding-left: 20px;
 }
 @media (max-width: 768px) {
+    /* Centraliza todo o container no mobile */
     .nossas-sementes-container {
-        flex-direction: column; /* Muda para coluna no mobile */
-        padding: 20px; /* Diminui o padding */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens no eixo vertical */
+        justify-content: center; /* Centraliza horizontalmente */
+        text-align: center;
+        padding: 20px; 
     }
 
     /* Ajuste no espaçamento do título */
-    .nossas-sementes-title-container{
+    .nossas-sementes-title-container {
         text-align: center;
-    }
-    .nossas-sementes-content {
-        text-align: left;
+        width: 100%;
     }
 
+    /* Centraliza o conteúdo */
+    .nossas-sementes-content h3{
+        font-size: 25px;
+        text-align: center;
+        padding-right: 190px;
+        margin: 0;
+        width: 100vw;
+    
+    }
+
+    /* Ajuste de tamanho no título */
     .nossas-sementes-title {
-        font-size: 30px; /* Ajuste o tamanho da fonte no mobile */
+        font-size: 35px;
+        margin-bottom: 15px; /* Adiciona espaçamento */
     }
 
+    /* Centraliza a lista */
     .nossas-sementes-list {
-        font-size: 20px; /* Ajuste o tamanho da lista no mobile */
-        padding-left: 20px;
+        font-size: 20px;
+        list-style-position: inside; /* Mantém os marcadores dentro */
+        text-align: center; /* Centraliza o texto */
+        margin: 0; /* Remove margens */
+        padding: 50px 0; /* Ajusta apenas o espaçamento superior */
+        width: 100vw; /* Faz a lista ocupar toda a largura da tela */
+        text-align: center; /* Centraliza o texto da lista */
+        padding-top: 50px;
+        padding-right: 190px;
     }
 
+    /* Ajusta o cabeçalho e imagens */
+    .nossas-sementes-header1,
     .nossas-sementes-header {
-        text-align: center; /* Ajusta a imagem para o centro no mobile */
-        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza a imagem */
+        justify-content: center;
+        text-align: center;
         margin-top: 30px;
+        
+    }
+
+    /* Substitui a imagem no mobile e mantém centralizado */
+    .nossas-sementes-header1 img {
+        content: url('nossas-sementes-mobile.png');
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .nossas-sementes-header img {
+        content: url('nossos-fertilizantes-mobile.png');
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
 }
+    
 
 .cobertura-container {
     text-align: center;
@@ -1299,6 +1372,26 @@ ul li {
     color: #555;
     font-size: 16px;
 }
+@media (max-width: 768px){
+    .img09 img{
+        content: url('marcas-parceiras-mobile.png'); /* Substitua pela imagem desejada */
+        max-width: 160%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        display: block; /* Remove espaços extras ao redor da imagem */
+        margin: 0 auto; /* Centraliza a imagem, se necessário */
+        padding-right: 100px;
+        
+    }
+
+}
+.img09{
+    padding: 120px;
+    text-align: center;
+    height: 250px; /* A imagem ocupa metade da largura */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 
 .marcas-container {
     display: flex;
@@ -1437,10 +1530,11 @@ ul li {
 }
 
 .contato-section {
-    background-color: #eef7fd; /* Cor de fundo azul claro */
-    padding: 50px 0;
+    background-color: white; /* Cor de fundo azul claro */
+    padding: 50px;
     display: flex;
     justify-content: center;
+    
 }
 
 .container {
@@ -1482,6 +1576,7 @@ ul li {
     border-radius: 30px;
     text-decoration: none;
     transition: 0.3s;
+    font-family: var(--poppins);
 }
 
 .btn-contato:hover {
@@ -1855,7 +1950,7 @@ nav ul li a[href*="tel:"] {
     display: flex;
     align-items: center; /* Centraliza os elementos verticalmente */
     justify-content: center;
-    background-color: var(--azulin); /* Cor de fundo */
+    background-color: white; /* Cor de fundo */
     padding: 80px 0; /* Ajuste de espaço interno para evitar cortes */
 }
 
@@ -1864,12 +1959,15 @@ nav ul li a[href*="tel:"] {
     max-width: 1200px; /* Mantém um limite para telas grandes */
 }
 
-@media  (max-width: 768px){
+@media (max-width: 768px){
     .imagem-premio{
-        width: 240%; /* Aumenta a largura da imagem em 20% */
+        content: url('solo-vivo-mobile.png'); /* Substitua pela imagem desejada */
+        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
         height: auto; /* Mantém a proporção da imagem */
-        object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+        display: block; /* Remove espaços extras ao redor da imagem */
+        margin: 0 auto; /* Centraliza a imagem, se necessário */
     }
+
 }
 
 .premio-content {
@@ -1920,6 +2018,7 @@ nav ul li a[href*="tel:"] {
     font-weight: bold;
     border-radius: 5px;
     transition: 0.3s;
+    font-family: var(--poppins);
 }
 
 .btn-premio:hover {
@@ -1979,6 +2078,74 @@ nav ul li a[href*="tel:"] {
     }
 }
 
+.agro-manejo-section {
+    background: url('ultima-imagem.png') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.agro-manejo-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.agro-manejo-section p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background: #ddd;
+}
+
+.instagram-section {
+    background: var(--verde_escuro);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.instagram-section h2 {
+    margin-bottom: 20px;
+}
+
+.instagram-btn {
+    background: var(--verde_claro);
+    color: black;
+    font-family: var(--poppins);
+    padding: 12px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.instagram-btn:hover {
+    background: var(--verde_escuro);
+}
+
+
 
 
 /* Estilo da Seção de Contato */
@@ -2002,7 +2169,56 @@ nav ul li a[href*="tel:"] {
 }
 
 /* Estilização do Formulário */
+.contato {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Centraliza o título e o parágrafo inicial */
+.contato-topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contato-topo h1 {
+    color: #105b23;
+    font-size: 2rem;
+}
+
+.contato-topo p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Layout do conteúdo principal (texto e formulário lado a lado) */
+.contato-container {
+    display: flex;
+    justify-content: center; /* Centraliza no meio */
+    align-items: center;
+    gap: 50px; /* Maior espaçamento */
+    text-align: left;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Estilização da parte de texto */
+.contato-texto {
+    flex: 1;
+    max-width: 40%;
+}
+
+.contato-texto h2 {
+    font-size: 1.5rem;
+    color: #105b23;
+    margin-bottom: 10px;
+}
+
+/* Estilização do formulário */
 form {
+    flex: 1;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -2037,12 +2253,14 @@ button:hover {
     background: #0c441b;
 }
 
-/* Informações de Contato */
+/* Centraliza as informações de contato abaixo dos dois blocos */
 .info-contato {
-    margin-top: 30px;
+    margin-top: 40px;
     text-align: center;
     font-size: 1.1rem;
     color: #333;
+    max-width: 600px;
+    margin: 40px auto; /* Garante que fique centralizado */
 }
 
 .info-contato a {
@@ -2053,6 +2271,25 @@ button:hover {
 
 .info-contato a:hover {
     text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contato-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contato-texto{
+        display: none;
+    }
+    form {
+        padding-top: 30px;
+        width: 300vw;  /* Ocupa toda a largura da tela */
+        height: 300vh; /* Ocupa toda a altura da tela */
+        
+    }
+    
 }
 
 /* Mapa Responsivo */
