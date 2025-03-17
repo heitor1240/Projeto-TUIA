@@ -28,7 +28,7 @@ body {
 
 body h1, h2, h3, h4{
     font-family: var(--poppins);
-    font-weight: 700;
+    font-weight: 400    ;
 }
 body p{
     font-family: var(--montserrat);
@@ -306,7 +306,7 @@ nav ul li a.active {
 .text-top-left h2 {
     font-size: 1.8rem;
     font-weight: lighter;
-    color: var(--azulescuro);
+    color: var(--preto);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     text-shadow: none;
     font-family: Arial, Helvetica, sans-serif;
@@ -342,7 +342,7 @@ nav ul li a.active {
     transform: translateX(-50%);
     width: 250px;
     border-radius: 20px;
-    top: 62%;
+    top: 56%;
     z-index: 10;
     border-color: white;
 }
@@ -353,12 +353,13 @@ nav ul li a.active {
     font-size: 1.2rem;
     font-weight:lighter;
     color: white;
+    font-weight: 800;
 }
 
 /* Container inferior */
 .container-bottom {
     background: #ffffff;
-    padding-top: 20px;
+    padding-top: 40px;
     text-align: center;
 }
 
@@ -387,15 +388,25 @@ nav ul li a.active {
 }
 
 .icon-box p {
-    font-weight: bold;
+    
     margin-top: 8px;
+    font-size: 18px;
+    font-family: var(--poppins);
+    font-weight: 400;
 }
 
 /* Rodapé */
 .text-footer {
-    font-size: 1.2rem;
-    margin-top: 20px;
+    font-size: 40px;
+    margin-top: 40px;
+    color: var(--verde_escuro);
 }
+.highlight3 {
+    color: var(--verde_escuro);
+    font-weight: 900 !important;
+    margin-bottom: 10px;
+}
+
 
 .logo-box {
     margin-top: 20px;
@@ -499,18 +510,18 @@ nav ul li a.active {
     text-align: center;
     padding: 40px 20px;
     background-color: white;
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .titulo {
     font-size: 2.5rem;
-    color: #176D2D;
+    color: var(--verde_escuro);
     font-weight: bold;
 }
 
 .subtitulo {
     font-size: 1.8rem;
-    color: #000000;
+    color: var(--verde_escuro);
     margin-top: 5px;
 }
 
@@ -528,11 +539,12 @@ nav ul li a.active {
     gap: 20px;
     max-width: 700px;
     margin: 30px auto;
+    padding-top: 30px;
 }
 
 .diferenca-box {
     background-color: white;
-    color: var(--cinza);
+    color: var(--preto);
     text-align: left;
     padding: 15px;
     border-radius: 10px;
@@ -572,6 +584,7 @@ nav ul li a.active {
     text-decoration: none;
     margin-top: 30px;
     transition: background 0.3s ease;
+    
 }
 
 .cta-button:hover {
@@ -593,6 +606,9 @@ nav ul li a.active {
     .diferenca-box img {
         width: 40px;
         height: 40px;
+    }
+    .hero01{
+        padding-top: 100px;
     }
 }
 
@@ -667,7 +683,7 @@ h2 {
     border-style:initial;
     border-radius: 8px;
     text-decoration: none;
-    margin-top: 30px;
+    margin-top: 10px;
     transition: background 0.3s ease;
     font-family: var(--poppins);
     font-weight: 700;
@@ -765,9 +781,10 @@ h2 {
 }
 
 .card p {
-    color: #444;
+    color: var(--preto);
     font-size: 18px;
     line-height: 1.5;
+    font-weight: bold;
 }
 
 /* Hover para os cards */
@@ -806,6 +823,7 @@ h2 {
     max-width: 900px;
     margin: auto;
     text-align: center;
+    top: -90px;
 }
 
 /* Cabeçalho */
@@ -841,7 +859,8 @@ h2 {
 
 .intro-text {
     font-size: 18px;
-    color: var(--preto);
+    font-family: var(--poppins);
+    font-weight: 400;
     margin: 10px 0 20px;
     padding-top: 30px;
 }
@@ -864,6 +883,7 @@ h2 {
     text-align: center;
     border-bottom: 3px solid transparent;
     transition: all 0.3s ease-in-out;
+    font-family: var(--poppins);
 }
 
 .tab span {
@@ -876,6 +896,7 @@ h2 {
     color: var(--verde_escuro);
     background-color: var(--azulin);
     border-bottom: 3px solid var(--verde_escuro);
+    font-family: var(--poppins);
 }
 
 /* Conteúdo */
@@ -905,7 +926,8 @@ ul {
 
 ul li {
     margin: 10px 0;
-    color: var(--cinza);
+    color: var(--preto);
+    font-family: var(--poppins);
 }
 
 /* Botão CTA */
@@ -984,9 +1006,13 @@ ul li {
 
 .rights {
     width: 60%;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--verde_escuro);
     line-height: 1.6;
+}
+
+.rights h3{
+    font-size: 25px;
 }
 
 .rights ul {
@@ -1081,7 +1107,7 @@ ul li {
 }
 @media (max-width: 768px) {
     .cta-section{
-        width: 450px;
+        width: 380px;
     }
     /* Altera a imagem de fundo para uma versão diferente no responsivo */
     .cta-image {
@@ -1115,13 +1141,13 @@ ul li {
 
 .nossas-sementes-header1{
     padding: 60px;
-    text-align: right;
+    text-align: center;
     margin-right: 40px;
     
 }
 .nossas-sementes-header{
     padding: 60px;
-    text-align: right;
+    text-align: center;
     margin-right: 40px;
 }
 .nossas-sementes-container {
@@ -1140,12 +1166,13 @@ ul li {
 }
 .nossas-sementes-content {
     flex: 2;
-    text-align: center;
+    text-align: left;
     margin-left: 190px;
 }
 .nossas-sementes-content h3{
     font-weight: 400;
-    text-align: center;
+    text-align: left;
+    font-size: 25px;
 }
 
 .nossas-sementes-title {
@@ -1157,6 +1184,10 @@ ul li {
 .nossas-sementes-list {
     list-style-type: disc;
     padding-left: 20px;
+    text-align: left;
+    color: var(--preto);
+    font-size: 18px;
+    font-family: var(--poppins);
 }
 @media (max-width: 768px) {
     /* Centraliza todo o container no mobile */
@@ -1363,14 +1394,17 @@ ul li {
 }
 
 .fertilizante-item h3, .semente-item h3 {
-    color: #2d572c;
+    color: var(--verde_escuro);
     font-size: 20px;
     margin-bottom: 10px;
+    font-family: var(--poppins);
 }
 
 .fertilizante-item p, .semente-item p {
-    color: #555;
-    font-size: 16px;
+    color: var(--preto);
+    font-size: 18px;
+    font-family: var(--poppins);
+    font-weight: 400;
 }
 @media (max-width: 768px){
     .img09 img{
@@ -1385,20 +1419,24 @@ ul li {
 
 }
 .img09{
-    padding: 120px;
     text-align: center;
     height: 250px; /* A imagem ocupa metade da largura */
     border-radius: 10px;
     object-fit: cover;
+    padding-top: 40px;
 }
-
+.marcas p{
+    font-size: 25px;
+    color: var(--verde_escuro);
+    font-weight: bold;
+}
 
 .marcas-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 60px;
+    
 }
 
 .marcas-container img {
@@ -1534,6 +1572,7 @@ ul li {
     padding: 50px;
     display: flex;
     justify-content: center;
+    padding-top: 100px;
     
 }
 
@@ -1549,19 +1588,20 @@ ul li {
     gap: 50px;
 }
 
-.contato-texto {
+.contato-texto1 {
     width: 50%; /* Texto ocupa metade da tela */
 }
 
-.contato-texto h2 {
-    font-size: 32px;
-    color: #132f4c; /* Azul escuro */
+.contato-texto1 h2 {
+    font-size: 40px;
+    color: var(--verde_escuro); 
     margin-bottom: 15px;
 }
 
-.contato-texto p {
+.contato-texto1 p {
     font-size: 18px;
-    color: #132f4c;
+    font-family: var(--poppins);
+    font-weight: 400;
     line-height: 1.5;
     margin-bottom: 20px;
 }
@@ -1969,6 +2009,9 @@ nav ul li a[href*="tel:"] {
     }
 
 }
+.imagem-premio{
+    text-align: center;
+}
 
 .premio-content {
     display: flex;
@@ -1993,8 +2036,8 @@ nav ul li a[href*="tel:"] {
 
 .premio-info p {
     font-family: var(--poppins);
-    color: var(--cinza);
-    font-size: 20px;
+    color: var(--preto);
+    font-size: 18px;
     margin-bottom: 20px;
     font-weight: 400;
 
@@ -2037,7 +2080,7 @@ nav ul li a[href*="tel:"] {
 }
 .overlay-image {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
@@ -2045,7 +2088,7 @@ nav ul li a[href*="tel:"] {
 }
 .text-content {
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
@@ -2088,18 +2131,22 @@ nav ul li a[href*="tel:"] {
     text-align: center;
     color: white;
     padding: 20px;
+    padding: 30px;
 }
 
 .agro-manejo-section h1 {
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: var(--poppins);
 }
 
 .agro-manejo-section p {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-top: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    font-family: var(--poppins);
+    font-weight: 400;
 }
 
 .btn {
@@ -2113,10 +2160,11 @@ nav ul li a[href*="tel:"] {
     cursor: pointer;
     text-decoration: none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-family: var(--poppins);
 }
 
 .btn:hover {
-    background: #ddd;
+    background: var(--verde_claro);
 }
 
 .instagram-section {
@@ -2143,6 +2191,7 @@ nav ul li a[href*="tel:"] {
 
 .instagram-btn:hover {
     background: var(--verde_escuro);
+    color: white;
 }
 
 
@@ -2157,14 +2206,17 @@ nav ul li a[href*="tel:"] {
 }
 
 .contato h1 {
-    color: #105b23;
-    font-size: 2rem;
+    color: var(--verde_escuro);
+    font-size: 35px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .contato p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 18px;
+    font-family: var(--poppins);
+    font-weight: 400;
+    color: var(--preto);
     margin-bottom: 20px;
 }
 
@@ -2208,11 +2260,20 @@ nav ul li a[href*="tel:"] {
     flex: 1;
     max-width: 40%;
 }
+.contato-texto p {
+    color: black;
+    font-size: 18px;
+    font-family: var(--poppins);
+    font-weight: 400;
+}
 
 .contato-texto h2 {
-    font-size: 1.5rem;
-    color: #105b23;
+    font-size: 35px;
+    color: var(--verde_escuro);
     margin-bottom: 10px;
+}
+.highlight4{
+    font-weight: bold;
 }
 
 /* Estilização do formulário */
@@ -2222,12 +2283,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    font-family: var(--poppins);
+    padding-top: 40px;
 }
 
 label {
     text-align: left;
     font-weight: bold;
-    color: #105b23;
+    color: var(--verde_escuro);
+    font-family: var(--poppins);
 }
 
 input, textarea {
@@ -2239,7 +2303,7 @@ input, textarea {
 }
 
 button {
-    background: #105b23;
+    background: var(--verde_escuro);
     color: white;
     padding: 10px;
     border: none;
@@ -2250,7 +2314,7 @@ button {
 }
 
 button:hover {
-    background: #0c441b;
+    background: var(--verde_claro);
 }
 
 /* Centraliza as informações de contato abaixo dos dois blocos */
@@ -2296,6 +2360,7 @@ button:hover {
 .mapa {
     margin-top: 20px;
     text-align: center;
+    padding-top: 30px;
 }
 
 .mapa iframe {
@@ -2308,9 +2373,10 @@ button:hover {
 
 footer {
     background-color:  var(--azulin);
-    color: var(--cinza);
+    color: var(--preto);
     padding: 40px 20px;
     text-align: center;
+    font-family: var(--poppins);
 }
 
 .footer-container {
@@ -2319,18 +2385,20 @@ footer {
     justify-content: space-around;
     max-width: 1200px;
     margin: auto;
+
 }
 
 .footer-section {
     flex: 1;
     min-width: 250px;
     margin: 20px;
+    font-size: 18px;
 }
 
 .footer-section h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    border-bottom: 2px solid var(--azulescuro);
+    border-bottom: 2px solid var(--verde_claro);
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -2346,7 +2414,7 @@ footer {
 
 .footer-section ul li a {
     text-decoration: none;
-    color: var(--cinza);
+    color: var(--preto);
     transition: 0.3s;
 }
 
@@ -2355,11 +2423,13 @@ footer {
 }
 
 .footer-section p {
-    font-size: 14px;
+    font-size: 18px;
+    font-family: var(--poppins);
+    font-weight: 400;
 }
 
 .footer-section a {
-    color: var(--cinza);
+    color: var(--preto);
     text-decoration: none;
 }
 
@@ -2382,7 +2452,7 @@ footer {
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid var(--preto);
-    font-size: 14px;
+    font-size: 12px;
 }
 .footer-bottom img {
     max-width: 110px;
