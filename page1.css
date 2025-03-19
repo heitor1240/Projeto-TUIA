@@ -329,6 +329,9 @@ nav ul li a.active {
     .text-top-left h2 {
         font-size: 2rem; /* Ajusta o tamanho do título */
     }
+    .text-footer{
+        font-size: 30px;
+    }
 }
 
 /* Linha divisória e título "PROPRIEDADES" */
@@ -480,6 +483,7 @@ nav ul li a.active {
     .feature-box {
         width: 90%; /* Ajusta a largura para ocupar mais espaço */
         max-width: 300px; /* Define um limite máximo */
+        
     }
 }
 @media (max-width: 768px) {
@@ -1042,20 +1046,21 @@ ul li {
         width: 90%; /* Aumenta a largura para ter uma margem interna */
         padding-left: 0; /* Remove o padding lateral */
         padding-top: 20px; /* Ajuste de espaçamento no mobile */
-        text-align: center; /* Centraliza o texto */
+        text-align: left; /* Centraliza o texto */
         margin-bottom: 20px; /* Adiciona um espaçamento entre as colunas */
     }
 
     .lefts h2 {
-        font-size: 30px; /* Diminui o tamanho da fonte no responsivo */
+        font-size: 35px; /* Diminui o tamanho da fonte no responsivo */
     }
 
     .rights h3 {
-        font-size: 20px; /* Ajusta o tamanho do subtítulo no responsivo */
+        font-size: 25px; /* Ajusta o tamanho do subtítulo no responsivo */
     }
 
     .rights ul {
         margin-top: 20px;
+        padding-top: 15px;
     }
 
     .rights li {
@@ -1226,11 +1231,11 @@ ul li {
     .nossas-sementes-list {
         font-size: 20px;
         list-style-position: inside; /* Mantém os marcadores dentro */
-        text-align: center; /* Centraliza o texto */
+        text-align: left; /* Centraliza o texto */
         margin: 0; /* Remove margens */
         padding: 50px 0; /* Ajusta apenas o espaçamento superior */
         width: 100vw; /* Faz a lista ocupar toda a largura da tela */
-        text-align: center; /* Centraliza o texto da lista */
+        text-align: left; /* Centraliza o texto da lista */
         padding-top: 50px;
         padding-right: 190px;
     }
@@ -1244,6 +1249,7 @@ ul li {
         justify-content: center;
         text-align: center;
         margin-top: 30px;
+        padding-right: 20px;
         
     }
 
@@ -1409,7 +1415,7 @@ ul li {
 @media (max-width: 768px){
     .img09 img{
         content: url('marcas-parceiras-mobile.png'); /* Substitua pela imagem desejada */
-        max-width: 160%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+        max-width: 130%; /* Garante que a imagem não ultrapasse a largura do contêiner */
         height: auto; /* Mantém a proporção da imagem */
         display: block; /* Remove espaços extras ao redor da imagem */
         margin: 0 auto; /* Centraliza a imagem, se necessário */
@@ -1633,44 +1639,11 @@ ul li {
     max-width: 80%; /* Para não ultrapassar a tela */
 }
 @media (max-width: 768px) {
-    .contato-content {
-        flex-direction: column; /* Alinha os itens em coluna */
-        gap: 20px; /* Reduz o espaço entre os itens */
-    }
-
-    .contato-texto {
-        width: 100%; /* Texto ocupa toda a largura da tela */
-        text-align: justify; /* Justifica o texto */
-        margin: 0; /* Remove as margens */
-    }
-
-    .contato-texto h2 {
-        font-size: 34px; /* Ajusta o tamanho do título no mobile */
-        margin-bottom: 10px;
-        margin-top: 20px;
-    }
-
-    .contato-texto p {
-        top: -10px;
-        font-size: 20px; /* Ajusta o tamanho do parágrafo no mobile */
-    }
-
-    .btn-contato {
-        padding: 12px 30px;
-        font-size: 16px; /* Ajusta o tamanho do botão no mobile */
-    }
-
-    .contato-imagem {
-        width: 100%; /* Imagem ocupa toda a largura disponível */
-        display: flex;
-        justify-content: center; /* Centraliza a imagem */
-    }
-
-    .contato-imagem img {
-        max-width: 100%; /* A imagem vai ocupar 100% da largura */
-        width: auto;
+    .contato-section{
+        display: none;
     }
 }
+
 
 .cta-button-3 {
     display: inline-block;
