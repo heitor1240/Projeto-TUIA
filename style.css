@@ -24,6 +24,7 @@
 
 body {
     background-color: white;
+    overflow-x: hidden; 
 }
 
 body h1, h2, h3, h4{
@@ -213,7 +214,7 @@ nav ul li a.active {
     /* Estilização do botão */
     .cta-button-mobile {
         display: inline-block;
-        margin-top: -80px; /* Deixa um espaço entre o texto e o botão */
+        margin-top: -200px; /* Deixa um espaço entre o texto e o botão */
         padding: 12px 25px;
         border: 2px solid var(--verde_escuro);
         background-color: var(--verde_escuro);
@@ -319,8 +320,8 @@ nav ul li a.active {
 
 @media (max-width: 768px) {
     .text-top-left {
-        top: 100px; /* Reduz a distância do topo */
-        left: 20px; /* Reduz a margem lateral */
+        top: 70px; /* Reduz a distância do topo */
+        left: 40px; /* Reduz a margem lateral */
         max-width: 100%; /* Permite que o texto se espalhe melhor na tela */
         font-size: 30px; /* Ajusta o tamanho do texto para telas menores */
         font-weight: 800;
@@ -332,6 +333,15 @@ nav ul li a.active {
     .text-footer{
         font-size: 30px;
     }
+    .container-top{
+        background-position: 20%; /* Centraliza a imagem */
+        padding-left: 20px;
+    }
+    .highlight {
+        color: #047004;
+        font-weight: bold;
+    }
+    
 }
 
 /* Linha divisória e título "PROPRIEDADES" */
@@ -431,11 +441,19 @@ nav ul li a.active {
     position: relative;
     top: -50px; /* Ajusta a posição para sobrepor a divisão */
     z-index: 10;
-    
 }
+
 @media (max-width: 768px) {
-    .feature-container{
+    .feature-container {
         top: 60px;
+        flex-direction: column; /* Empilha os quadrados */
+        align-items: center; /* Centraliza no eixo horizontal */
+        gap: 15px; /* Espaçamento menor entre os itens */
+    }
+
+    .feature-box {
+        width: 90%; /* Ajusta a largura para ocupar mais espaço */
+        max-width: 300px; /* Define um limite máximo */
     }
 }
 
@@ -450,12 +468,23 @@ nav ul li a.active {
     transform: translateY(0); /* Inicialmente não movido */
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Transição suave */
 }
-.feature-box:hover{
+
+/* Estilização do link dentro do feature-box */
+.feature-container a {
+    text-decoration: none; /* Remove sublinhado */
+    color: inherit; /* Mantém a cor do texto */
+    display: block; /* Faz com que o link ocupe toda a área do box */
+}
+
+/* Efeito de hover */
+.feature-box:hover {
     color: white;
     background-color: var(--verde_claro);
     transform: translateY(-10px); /* Efeito de subida */
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
 }
+
+/* Animação de delay */
 .feature-box:nth-child(1) {
     animation-delay: 0.2s;
 }
@@ -468,24 +497,14 @@ nav ul li a.active {
     animation-delay: 0.6s;
 }
 
+/* Ajuste do tamanho da imagem dentro do feature-box */
 .feature-box img {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
 }
-@media (max-width: 768px) {
-    .feature-container {
-        flex-direction: column; /* Empilha os quadrados */
-        align-items: center; /* Centraliza no eixo horizontal */
-        gap: 15px; /* Espaçamento menor entre os itens */
-    }
 
-    .feature-box {
-        width: 90%; /* Ajusta a largura para ocupar mais espaço */
-        max-width: 300px; /* Define um limite máximo */
-        
-    }
-}
+/* Ajustes adicionais para responsividade */
 @media (max-width: 768px) {
     .feature-container,
     .valores,
@@ -508,6 +527,7 @@ nav ul li a.active {
         width: 80px;
     }
 }
+
 /*quem somos*/
 /* Container principal que organiza as duas seções lado a lado */
 .hero01 {
@@ -521,12 +541,14 @@ nav ul li a.active {
     font-size: 2.5rem;
     color: var(--verde_escuro);
     font-weight: bold;
+    text-align: center;
 }
 
 .subtitulo {
     font-size: 1.8rem;
     color: var(--verde_escuro);
     margin-top: 5px;
+    text-align: center;
 }
 
 .descricao01 {
@@ -1207,15 +1229,15 @@ ul li {
 
     /* Ajuste no espaçamento do título */
     .nossas-sementes-title-container {
-        text-align: center;
+        text-align: left;
         width: 100%;
     }
 
     /* Centraliza o conteúdo */
-    .nossas-sementes-content h3{
+    .nossas-sementes-content{
         font-size: 25px;
-        text-align: center;
-        padding-right: 190px;
+        text-align: left;
+        padding-left: 20px;
         margin: 0;
         width: 100vw;
     
@@ -1225,6 +1247,7 @@ ul li {
     .nossas-sementes-title {
         font-size: 35px;
         margin-bottom: 15px; /* Adiciona espaçamento */
+        text-align: left;
     }
 
     /* Centraliza a lista */
@@ -1256,10 +1279,10 @@ ul li {
     /* Substitui a imagem no mobile e mantém centralizado */
     .nossas-sementes-header1 img {
         content: url('nossas-sementes-mobile.png');
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
+        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        display: block; /* Remove espaços extras ao redor da imagem */
+        margin: 0 auto; /* Centraliza a imagem, se necessário */
     }
 
     .nossas-sementes-header img {
@@ -1847,12 +1870,12 @@ ul li {
 }
 
 
-    .slide {
-        width: 100vw;
-        height: 100%;
-        position: relative;
-        flex-shrink: 0;
-    }   
+.slide {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+}       
 
 
 nav {
@@ -1995,7 +2018,7 @@ nav ul li a[href*="tel:"] {
 }
 
 .premio-content img {
-    width: 50%; /* A imagem ocupa metade da largura */
+    width: 80%; /* A imagem ocupa metade da largura */
     border-radius: 10px;
     object-fit: cover;
 }
@@ -2083,14 +2106,15 @@ nav ul li a[href*="tel:"] {
     .overlay-image {
         width: 90%; /* Reduz o tamanho da imagem do meio */
         max-width: 400px; /* Limita o tamanho máximo da imagem */
-        top: 20%;
+        top: 10%;
     }
 
     /* Ajusta o texto no responsivo */
     .text-content {
-        top: 80%; /* Move o texto para cima */
+        top: 70%; /* Move o texto para cima */
         font-size: 20px; /* Diminui o tamanho da fonte */
         padding: 15px; /* Ajuste do padding */
+        text-align: left;
     }
 }
 
@@ -2322,10 +2346,32 @@ button:hover {
     }
     form {
         padding-top: 30px;
-        width: 300vw;  /* Ocupa toda a largura da tela */
-        height: 300vh; /* Ocupa toda a altura da tela */
-        
+        width: 80vw; /* 50% da largura da tela */
+        max-width: 500px; /* Limite para não ficar muito grande */
+        height: auto; /* Deixa o tamanho flexível conforme o conteúdo */
+        margin: 0 auto; /* Centraliza o formulário */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+    
+    input, textarea {
+        width: 100%; /* Ajusta para ocupar toda a largura do form */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 10px; /* Dá um espaçamento entre os inputs */
+    }
+    
+    label {
+        width: 100%;
+        text-align: left;
+    }
+    .buttonf{
+        width: 80vw;
+    }
+    
     
 }
 
@@ -2492,7 +2538,7 @@ footer {
     }
 
     .imagem {
-        width: 100%; /* Ocupa toda a largura */
+        width: 150%; /* Ocupa toda a largura */
         margin-top: 20px; /* Adiciona um espaçamento entre o texto e a imagem */
         text-align: center; /* Garante que a imagem fique centralizada */
     }

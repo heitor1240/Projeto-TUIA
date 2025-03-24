@@ -30,10 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav");
 
-    menuToggle.addEventListener("click", function () {
+    // Abrir/fechar o menu ao clicar no botão
+    menuToggle.addEventListener("click", function (event) {
         nav.classList.toggle("active");
+        event.stopPropagation(); // Impede que o clique no botão feche imediatamente o menu
+    });
+
+    // Fechar o menu ao clicar fora dele
+    document.addEventListener("click", function (event) {
+        if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+            nav.classList.remove("active");
+        }
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".tab");
