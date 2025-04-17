@@ -1,3 +1,14 @@
+document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // impede o pulo direto
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
 document.addEventListener("DOMContentLoaded", function () {
     let carrossel = document.querySelector(".carousel");
     let slides = document.querySelectorAll(".slide");
